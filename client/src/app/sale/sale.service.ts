@@ -1,9 +1,19 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SaleService {
+  baseUrl = 'https://localhost:5001/api/'
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  startSale() 
+  {
+    
+    return this.http.get(this.baseUrl + 'products/start-sale')
+  }
+
+  
 }
