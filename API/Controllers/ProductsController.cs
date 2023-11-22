@@ -77,6 +77,6 @@ namespace API.Controllers
             var result = await _productsRepo.HalfAllPricesAsync();
 
             return Ok(result);
-        }
+        }        
     }
 }
