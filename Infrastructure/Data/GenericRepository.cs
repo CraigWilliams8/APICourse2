@@ -42,9 +42,16 @@ namespace Infrastructure.Data
             return SpecificationEvaluator<T>.GetQuery(_context.Set<T>().AsQueryable(), spec);
         }
 
-        public Task<bool> HalfAllPricesAsync()
+        public async Task<bool> HalfAllPricesAsync()
         {
-            throw new NotImplementedException();
+                     var products = _context.Products.ToList();
+
+            foreach(var prod in products) 
+            {
+                prod.Price = prod.Price / 2;
+                _context.Products.Update(prod);
+            }
+            return true;
         }
     }
 }

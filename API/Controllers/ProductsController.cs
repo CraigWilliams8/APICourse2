@@ -75,7 +75,6 @@ namespace API.Controllers
         public async Task<ActionResult<bool>> StartSale()
         {
             var result = await _productsRepo.HalfAllPricesAsync();
-
             return Ok(result);
         }        
     }
