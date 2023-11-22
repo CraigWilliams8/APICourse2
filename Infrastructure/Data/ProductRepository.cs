@@ -37,5 +37,17 @@ namespace Infrastructure.Data
         public async Task<IReadOnlyList<ProductType>> GetProductTypesAsync()
         {
                  return await _context.ProductTypes.ToListAsync();        }
+
+        public async Task<bool> HalfAllPricesAsync()
+        {
+            var products = _context.Products.ToList();
+
+            foreach(var prod in products) 
+            {
+                prod.Price = prod.Price / 2;
+                _context.Products.Update(prod);
+            }
+            return true;
+        }
     }
 }
