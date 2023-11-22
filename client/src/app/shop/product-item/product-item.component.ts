@@ -15,4 +15,5 @@ constructor(private basketService: BasketService){}
 addItemToBasket(){
   this.product && this.basketService.addItemToBasket(this.product);
 }
+
 }
