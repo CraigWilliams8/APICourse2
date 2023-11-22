@@ -45,4 +45,5 @@ return this.http.get<Brand[]>(this.baseUrl + 'products/brands');
   {
 return this.http.get<Type[]>(this.baseUrl + 'products/types');
   }
-}
+} 
+

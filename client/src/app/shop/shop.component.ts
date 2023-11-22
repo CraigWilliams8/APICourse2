@@ -104,4 +104,13 @@ this.getTypes();
     this.shopParams = new ShopParams();
     this.getProducts();
   }
+
+  setSale(bool: boolean){
+    if(bool) {
+      localStorage.setItem('isSaleOn', 'true');
+    }
+    else {
+      localStorage.setItem('isSaleOn', 'false');
+    }
+  }
 }
