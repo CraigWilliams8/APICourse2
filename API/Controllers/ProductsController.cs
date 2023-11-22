@@ -76,6 +76,14 @@ namespace API.Controllers
         {
             var result = await _productsRepo.HalfAllPricesAsync();
             return Ok(result);
-        }        
+        }   
+
+        [HttpPost("end-sale")]
+
+        public async Task<ActionResult<bool>> EndSale()
+        {
+            var result = await _productsRepo.DoubleAllPricesAsync();
+            return Ok(result);
+        }         
     }
 }

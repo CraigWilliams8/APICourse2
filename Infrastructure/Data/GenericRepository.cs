@@ -44,13 +44,25 @@ namespace Infrastructure.Data
 
         public async Task<bool> HalfAllPricesAsync()
         {
-                     var products = _context.Products.ToList();
+            var products = await _context.Products.ToListAsync();
 
             foreach(var prod in products) 
             {
                 prod.Price = prod.Price / 2;
-                _context.Products.Update(prod);
             }
+            _context.SaveChanges();
+            return true;
+        }
+
+        public async Task<bool> DoubleAllPricesAsync()
+        {
+            var products = await _context.Products.ToListAsync();
+
+            foreach(var prod in products) 
+            {
+                prod.Price = prod.Price * 2;
+            }
+              _context.SaveChanges();
             return true;
         }
     }
