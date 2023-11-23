@@ -1,2 +1,3 @@
-<button (click)="setSale(true)"  class="btn btn-outline-secondary me-4">Admin(Half Price)</button>
-<button (click)="setSale(false)" class="btn btn-outline-secondary me-4">Admin(Full Price)</button>
+<button *ngIf="toggle == true" (click)="setSale(true)"  
+class="button btn-outline-secondary me-4 button1">Admin(Half Price)</button>
+<button (click)="setSale(false)" class="button btn-outline-secondary me-4 button2">Admin(Full Price)</button>
