@@ -10,8 +10,6 @@ import { ShopComponent } from 'src/app/shop/shop.component';
 })
 export class SaleComponent {
 
-  toggle? : boolean ;
-  shopComp? : ShopComponent;
   constructor(private saleService: SaleService){}  
   
   ngOnInit(): void{
@@ -27,12 +25,12 @@ export class SaleComponent {
     if(bool) {
       localStorage.setItem('isSaleOn', 'false');
       this.startSale();
-      this.toggle = false;
+
     }
     else {
       localStorage.setItem('isSaleOn', 'true');
       this.endSale();
-      this.toggle = true;
+
     }
   }
   isSaleOn(): boolean{
