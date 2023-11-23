@@ -12,8 +12,12 @@ export class SaleService {
   startSale() 
   {
     
-    return this.http.get(this.baseUrl + 'products/start-sale')
+    return this.http.post(this.baseUrl + 'products/start-sale', null)
   }
 
-  
+  endSale()
+  {
+    return this.http.post(this.baseUrl + 'products/end-sale', null)
+  }
+
 }

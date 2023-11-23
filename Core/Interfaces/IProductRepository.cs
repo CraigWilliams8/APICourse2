@@ -13,6 +13,5 @@ namespace Core.Interfaces
 
         Task<IReadOnlyList<ProductType>> GetProductTypesAsync();
 
-        Task<bool> HalfAllPricesAsync();
     }
 }
