@@ -13,13 +13,19 @@ export class SaleService {
 
   startSale() 
   {
-    this.http.put<Product>(this.baseUrl + 'products/start-sale', {title: 'Half Price'}).subscribe()
+    this.http.put<any>(this.baseUrl + 'products/start-sale', {})
+    .subscribe({
+      next: data => {
+        console.log(data);
+      }
+    })
+      
   }
 
   endSale()
   {
-    this.http.put<Product>(this.baseUrl + 'products/end-sale', {titel: 'Full Price'})
-    .subscribe()
+    this.http.put<any>(this.baseUrl + 'products/end-sale', {})
+    .subscribe(data => {})
   }
 
 }

@@ -8,6 +8,7 @@ import { BasketItem } from '../shared/models/basket';
   styleUrls: ['./basket.component.scss']
 })
 export class BasketComponent {
+
 constructor(public basketService: BasketService) {}
 
 incrementQuantity(item: BasketItem){
@@ -16,5 +17,11 @@ incrementQuantity(item: BasketItem){
 
 removeItem(id: number, quantity: number){
   this.basketService.removeItemFromBasket(id, quantity);
+}
+
+isSaleOn(): boolean{
+  if(localStorage.getItem('isSaleOn') === 'true') return true;
+  else return false;
+  
 }
 }

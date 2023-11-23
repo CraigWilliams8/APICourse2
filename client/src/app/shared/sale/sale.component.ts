@@ -9,8 +9,12 @@ import { Product } from '../models/product';
 })
 export class SaleComponent {
 
+  toggle? : boolean ;
   constructor(private saleService: SaleService){}  
 
+  ngOnInit(): void{
+    this.toggle = true;
+  }
   startSale() {
     this.saleService.startSale();
   }
@@ -23,10 +27,12 @@ export class SaleComponent {
     if(bool) {
       localStorage.setItem('isSaleOn', 'true');
       this.startSale();
+      this.toggle = false;
     }
     else {
       localStorage.setItem('isSaleOn', 'false');
       this.endSale();
+      this.toggle = true;
     }
   }
 }
