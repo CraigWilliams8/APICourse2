@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SaleService } from './sale.service';
 import { Product } from '../models/product';
+import { ShopComponent } from 'src/app/shop/shop.component';
 
 @Component({
   selector: 'app-sale',
@@ -10,6 +11,7 @@ import { Product } from '../models/product';
 export class SaleComponent {
 
   toggle? : boolean ;
+  shopComp? : ShopComponent;
   constructor(private saleService: SaleService){}  
 
   ngOnInit(): void{
@@ -21,7 +23,6 @@ export class SaleComponent {
 
   endSale() {
     this.saleService.endSale();
-
   }
   setSale(bool: boolean){
     if(bool) {
