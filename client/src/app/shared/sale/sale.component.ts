@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SaleService } from './sale.service';
+import { Product } from '../models/product';
 
 @Component({
   selector: 'app-sale',
@@ -7,6 +8,7 @@ import { SaleService } from './sale.service';
   styleUrls: ['./sale.component.scss']
 })
 export class SaleComponent {
+
   constructor(private saleService: SaleService){}  
 
   startSale() {
