@@ -110,13 +110,7 @@ basketTotalSource$ = this.basketTotalSource.asObservable();
     if(!basket) return ;
 
     const shipping = 0;
-    if(localStorage.getItem('isSaleOn') === 'false') {
-       subTotal = basket.items.reduce((a, b) => (b.price * b.quantity) + a, 0);
-    }
-
-    else {
-      subTotal = basket.items.reduce((a, b) => (b.price / 2 * b.quantity) + a, 0);
-    }
+    subTotal = basket.items.reduce((a, b) => (b.price * b.quantity) + a, 0);
     total = subTotal + shipping;
     this.basketTotalSource.next({
       shipping, total, subTotal
