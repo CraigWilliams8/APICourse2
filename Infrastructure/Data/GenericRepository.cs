@@ -62,7 +62,7 @@ namespace Infrastructure.Data
             {
                 prod.Price = prod.Price * 2;
 
-                
+
                 // var rand = new Random();
                 // var newPrice = rand.Next(1, 100);
                 // var priceRound = Math.Ceiling((double)newPrice);
