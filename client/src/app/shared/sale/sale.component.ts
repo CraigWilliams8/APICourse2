@@ -20,9 +20,11 @@ export class SaleComponent {
   setSale(bool: boolean){
     if(bool) {
       localStorage.setItem('isSaleOn', 'true');
+      this.startSale();
     }
     else {
       localStorage.setItem('isSaleOn', 'false');
+      this.endSale();
     }
   }
 }

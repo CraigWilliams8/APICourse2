@@ -70,7 +70,7 @@ namespace API.Controllers
             return Ok(productTypes);
         }
 
-        [HttpPost("start-sale")]
+        [HttpPut("start-sale")]
 
         public async Task<ActionResult<bool>> StartSale()
         {
@@ -78,7 +78,7 @@ namespace API.Controllers
             return Ok(result);
         }   
 
-        [HttpPost("end-sale")]
+        [HttpPut("end-sale")]
 
         public async Task<ActionResult<bool>> EndSale()
         {
