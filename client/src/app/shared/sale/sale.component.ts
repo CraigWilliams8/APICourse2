@@ -10,7 +10,7 @@ import { ShopComponent } from 'src/app/shop/shop.component';
 })
 export class SaleComponent {
 
-  toggle? : boolean = true ;
+  toggle? : boolean ;
   shopComp? : ShopComponent;
   constructor(private saleService: SaleService){}  
   
@@ -25,12 +25,20 @@ export class SaleComponent {
   }
   setSale(bool: boolean){
     if(bool) {
+      localStorage.setItem('isSaleOn', 'false');
       this.startSale();
       this.toggle = false;
     }
     else {
+      localStorage.setItem('isSaleOn', 'true');
       this.endSale();
       this.toggle = true;
     }
+  }
+  isSaleOn(): boolean{
+    const x = localStorage.getItem('isSaleOn');
+    console.log(x);
+    if(localStorage.getItem('isSaleOn') == 'true') return true;
+    else return false;
   }
 }
