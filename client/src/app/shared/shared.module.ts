@@ -13,7 +13,6 @@ import { SaleComponent } from '../sale/sale.component';
     PagingHeaderComponent,
     PagerComponent,
     OrderTotalsComponent,
-    SaleComponent
   ],
   imports: [
     CommonModule,
@@ -25,8 +24,7 @@ import { SaleComponent } from '../sale/sale.component';
     PagingHeaderComponent,
     PagerComponent,
     CarouselModule,
-    OrderTotalsComponent,
-    SaleComponent
+    OrderTotalsComponent
   ]
 })
 export class SharedModule { }

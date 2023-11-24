@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { SaleService } from './sale.service';
-import { Product } from '../shared/models/product';
-import { ShopComponent } from 'src/app/shop/shop.component';
 
 @Component({
   selector: 'app-sale',
@@ -12,8 +10,6 @@ export class SaleComponent {
 
   constructor(private saleService: SaleService){}  
   
-  ngOnInit(): void{
-  }
   startSale() {
     this.saleService.startSale();
   }
