@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SaleService } from './sale.service';
-import { Product } from '../models/product';
+import { Product } from '../shared/models/product';
 import { ShopComponent } from 'src/app/shop/shop.component';
 
 @Component({

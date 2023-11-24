@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Product } from '../models/product';
+import { Product } from '../shared/models/product';
 import { ShopService } from 'src/app/shop/shop.service';
 import { ShopComponent } from 'src/app/shop/shop.component';
 
