@@ -20,8 +20,6 @@ removeItem(id: number, quantity: number){
 }
 
 isSaleOn(): boolean{
-  if(localStorage.getItem('isSaleOn') === 'true') return true;
-  else return false;
-  
+  return localStorage.getItem('isSaleOn') === 'true';
 }
 }

@@ -22,17 +22,13 @@ export class SaleComponent {
       localStorage.setItem('isSaleOn', 'false');
       this.startSale();
 
-    }
-    else {
+    } else {
       localStorage.setItem('isSaleOn', 'true');
       this.endSale();
 
     }
   }
   isSaleOn(): boolean{
-    const x = localStorage.getItem('isSaleOn');
-    console.log(x);
-    if(localStorage.getItem('isSaleOn') == 'true') return true;
-    else return false;
+    return localStorage.getItem('isSaleOn') == 'true';
   }
 }

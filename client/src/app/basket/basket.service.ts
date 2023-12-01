@@ -105,13 +105,11 @@ basketTotalSource$ = this.basketTotalSource.asObservable();
 
   private calculateTotals(){
     const basket = this.getCurrentBasketValue();
-    var subTotal = 0;
-    var total = 0;
     if(!basket) return ;
 
     const shipping = 0;
-    subTotal = basket.items.reduce((a, b) => (b.price * b.quantity) + a, 0);
-    total = subTotal + shipping;
+    const subTotal = basket.items.reduce((a, b) => (b.price * b.quantity) + a, 0);
+    const total = subTotal + shipping;
     this.basketTotalSource.next({
       shipping, total, subTotal
     })

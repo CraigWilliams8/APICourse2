@@ -61,12 +61,6 @@ namespace Infrastructure.Data
             foreach(var prod in products) 
             {
                 prod.Price = prod.Price * 2;
-
-
-                // var rand = new Random();
-                // var newPrice = rand.Next(1, 100);
-                // var priceRound = Math.Ceiling((double)newPrice);
-                // prod.Price = (decimal)priceRound;
             }
               _context.SaveChanges();
             return true;

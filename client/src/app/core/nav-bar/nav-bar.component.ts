@@ -9,7 +9,6 @@ import { BasketItem } from 'src/app/shared/models/basket';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent {
-  sale?: boolean;
   constructor(public basketService: BasketService) {}
 
   getCount(items: BasketItem[]){
