@@ -46,10 +46,7 @@ namespace Infrastructure.Data
         {
             var products = await _context.Products.ToListAsync();
 
-            foreach(var prod in products) 
-            {
-                prod.Price = prod.Price / 2;
-            }
+            products.ForEach(prod => prod.Price = prod.Price / 2);
             _context.SaveChanges();
             return true;
         }
@@ -58,10 +55,8 @@ namespace Infrastructure.Data
         {
             var products = await _context.Products.ToListAsync();
 
-            foreach(var prod in products) 
-            {
-                prod.Price = prod.Price * 2;
-            }
+            products.ForEach(prod => prod.Price = prod.Price * 2);
+
               _context.SaveChanges();
             return true;
         }
