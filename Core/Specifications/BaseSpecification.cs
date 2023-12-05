@@ -37,7 +37,7 @@ namespace Core.Specifications
         {
             OrderBy = orderByExpression;
         }
-         protected void OrderByDescending(Expression<Func<T, object>> orderByDescending)
+         protected void AddOrderByDescending(Expression<Func<T, object>> orderByDescending)
         {
             OrderByDesc = orderByDescending;
         }
