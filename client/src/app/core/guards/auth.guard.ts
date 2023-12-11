@@ -16,13 +16,10 @@ export class AuthGuard implements CanActivate {
     return this.accountService.currentUser$.pipe(
       map(auth => {
         if (auth){
-          console.log("auth");
           return true;
         } 
           
         else {
-          console.log("not auth");
-
           this.router.navigate(['/account/login'], {queryParams: {returnUrl: state.url}});
           return false
         }

@@ -20,6 +20,7 @@ namespace Core.Entities
 
         public CustomerBasket()
         {
+            Items = new List<BasketItem>();
         }
     }
 

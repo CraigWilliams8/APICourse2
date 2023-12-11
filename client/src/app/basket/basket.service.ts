@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Basket, BasketItem, BasketTotals } from '../shared/models/basket';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../shared/models/product';
+import { DeliveryMethod } from '../shared/models/deliveryMethod';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,14 @@ private basketSource = new BehaviorSubject<Basket | null>(null);
 basketSource$ = this.basketSource.asObservable();
 private basketTotalSource = new BehaviorSubject<BasketTotals | null>(null);
 basketTotalSource$ = this.basketTotalSource.asObservable();
+shipping = 0;
 
   constructor(private http: HttpClient) { }
 
+  setShippingPrice(deliveryMethod : DeliveryMethod){
+    this.shipping = deliveryMethod.price;
+    this.calculateTotals();
+  }
   getBaskets(id: string ){
     return this.http.get<Basket>(this.baseUrl + 'basket?id=' + id).subscribe({
       next: basket => {
@@ -68,12 +74,17 @@ basketTotalSource$ = this.basketTotalSource.asObservable();
   deleteBasket(basket: Basket) {
     return this.http.delete(this.baseUrl + 'basket?id=' + basket.id).subscribe({
       next: () => {
-        this.basketSource.next(null);
-        this.basketTotalSource.next(null);
-        localStorage.removeItem('basket_id');
+        this.deleteLocalBasket();
       }
     })
   }
+  
+  deleteLocalBasket(){
+    this.basketSource.next(null);
+    this.basketTotalSource.next(null);
+    localStorage.removeItem('basket_id');
+  }
+
   addOrUpdateItem(items: BasketItem[], itemToAdd: BasketItem, quantity: number): BasketItem[] {
     const item = items.find(x => x.id === itemToAdd.id);
 
@@ -108,12 +119,11 @@ basketTotalSource$ = this.basketTotalSource.asObservable();
 
     if(!basket) return ;
 
-    const shipping = 0;
     const subTotal = basket.items.reduce((a, b) => (b.price * b.quantity) + a, 0);
-    const total = subTotal + shipping;
+    const total = subTotal + this.shipping;
 
     this.basketTotalSource.next({
-      shipping, total, subTotal
+      shipping: this.shipping, total, subTotal
     })
 
   }
