@@ -7,6 +7,7 @@ namespace API.DTOs
         public int Id { get; set; }
         public string BuyerEmail { get; set; }
        
+       public DateTime OrderDate {get; set;}
         public Address ShipToAddress { get; set; }
         public string DeliveryMethod {get; set;}
 
